@@ -32,3 +32,27 @@ button
     padding: 7px;
     cursor: pointer;
 }
+
+
+.product-info img
+{
+    display: block;
+    width: 40%;
+    height: auto;
+    margin: 20px auto;
+}
+.product-info p 
+{
+    text-align: center;
+    color: #2a5ea5;
+    font-size: 30px;
+}
+.close-icon
+{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: #2a5ea5;
+    cursor: pointer;
+}
