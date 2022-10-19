@@ -1,0 +1,24 @@
+.filter-wraper {
+  width: 31%;
+  padding: 10px 20px;
+  border: 1px solid #c0c0c0;
+  margin-top: 15px;
+  height: 50%;
+}
+.filter-wraper .filter-title {
+  font-size: 20px;
+  background-color: #2a5ea5;
+  color: white;
+  width: 90%;
+  padding: 5px 10px;
+}
+.filter-wraper > div {
+  padding: 15px 5px;
+  margin-bottom: 15px;
+}
+.filter-wraper select {
+  display: block;
+  width: 100%;
+  border: 1px solid #c0c0c0;
+  height: 40px;
+}
