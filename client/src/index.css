@@ -28,14 +28,14 @@ main
 .wrapper
 {
   display: flex;
-  justify-content: space-between;
+  width: 100%;
 }
 
 .wrapper .products
 {
   width: 68%;
 }
-.wrapper .filter
+.wrapper Filter
 {
   width: 32%;
 }
