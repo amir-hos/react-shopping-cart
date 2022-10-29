@@ -1,0 +1,45 @@
+.cart-wraper
+{
+    width: 70%;
+    margin: 20px auto;
+}
+.title
+{
+    font-size: large;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #333;
+    margin-bottom: 30px;
+}
+.cart-item
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 2px 2px 3px #c0c0c0;
+    margin-bottom: 10px;
+
+    img
+{
+    width: 170px;
+    margin-right: 20px;
+}
+.info
+{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex: 1;
+    font-size: 17px;
+}
+button
+{
+    width: 120px;
+    background-color: #2a5ea5;
+    border-radius: 3px;
+    border: 0;
+    color: white;
+    padding: 7px;
+    cursor: pointer;
+}
+}
