@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../css/cart/cart.css';
+import CheckOutForm from '../checkOutForm/CheckOutForm';
  function Cart(props) {
+
+  const [checkForm , setCheckForm] = useState(false);
+  const [value , setValue] = useState("")
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    const order ={
+      name : value.name ,
+      email : value.email
+    }
+    console.log(order);
+  }
+  const handleChange =(e)=>{
+    setValue((prevState)=>({...prevState , [e.target.name] : [e.target.value]}))
+  }
   return (
     <div>
       <div className='cart-wraper'>
@@ -20,7 +36,26 @@ import '../../css/cart/cart.css';
           </div>
             ))}
         </div>
+        {props.cartItem.length !==0 && (
+          <div className='tatal-cart'>
+              <div className='total-price'>total: ${props.cartItem.reduce((acc , p)=>{
+                return acc + p.price
+              } , 0)}</div>
+              <button onClick={()=>setCheckForm(true)}>selectProduct</button>
+        </div>
+        )}
+        
       </div>
+
+      {/* checkOutForm  */}
+      <CheckOutForm 
+      checkForm={checkForm}
+      handleSubmit={handleSubmit}
+      handleChange={handleChange}
+      setCheckForm={setCheckForm}
+      />
+
+
     </div>
   )
 }
