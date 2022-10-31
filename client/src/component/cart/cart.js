@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../css/cart/cart.css';
 import CheckOutForm from '../checkOutForm/CheckOutForm';
+import Fade from 'react-reveal/Fade';
  function Cart(props) {
 
   const [checkForm , setCheckForm] = useState(false);
@@ -23,6 +24,7 @@ import CheckOutForm from '../checkOutForm/CheckOutForm';
         <div className='title'>{props.cartItem.length === 0 ? 'empty cart' : 
         <p>there is {props.cartItem.length} product</p>}
         </div>
+        <Fade left cascade>
         <div className='cart-items'>
             {props.cartItem.map(item=>(
               <div className='cart-item' key={item.id}>
@@ -36,6 +38,7 @@ import CheckOutForm from '../checkOutForm/CheckOutForm';
           </div>
             ))}
         </div>
+        </Fade>
         {props.cartItem.length !==0 && (
           <div className='tatal-cart'>
               <div className='total-price'>total: ${props.cartItem.reduce((acc , p)=>{
