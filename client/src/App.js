@@ -6,6 +6,8 @@ import Footer from "./component/Footer/footer";
 import Header from "./component/Header/header";
 import Products from "./component/Products/products";
 import data from './data.json';
+import {Provider} from 'react-redux';
+import store from "./store/store";
 /*import { words } from "./words";*/
 function App() {
 
@@ -63,24 +65,26 @@ function App() {
     setProducts(newProducts)
   }
   return (
-    <div className="App">
-      <Header/>
-      <main>
-        <div className="wrapper">
-        <Products products={products} addToCart={addToCart} />
-        <Filter className='filter'
-        productNumber={products.length}
-        size={size}
-        order={order}
-        handleFilterBySize={handleFilterBySize}
-        handleFilterByOrder={handleFilterByOrder}
-        />
+    <Provider store={store}>
+        <div className="App">
+          <Header/>
+          <main>
+            <div className="wrapper">
+            <Products products={products} addToCart={addToCart} />
+            <Filter className='filter'
+            productNumber={products.length}
+            size={size}
+            order={order}
+            handleFilterBySize={handleFilterBySize}
+            handleFilterByOrder={handleFilterByOrder}
+            />
+            </div>
+            <Cart cartItem={cartItem} removeCart={removeCart}/>
+            </main>
+      
+          <Footer /> 
         </div>
-        <Cart cartItem={cartItem} removeCart={removeCart}/>
-        </main>
-  
-      <Footer /> 
-    </div>
+    </Provider>
   );
   
 }
