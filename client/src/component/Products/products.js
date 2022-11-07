@@ -41,6 +41,6 @@ import { fetchProducts } from '../../store/actions/products';
 }
 export default connect( (state)=>{ 
   return{
-    products : state.products.products
+    products : state.products.filterProduct
   }
 },{fetchProducts} )(Products);
