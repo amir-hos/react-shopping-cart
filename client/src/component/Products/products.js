@@ -4,6 +4,7 @@ import ProductModal from './productModal';
 import Bounce from 'react-reveal/Bounce';
 import {connect} from 'react-redux';
 import { fetchProducts } from '../../store/actions/products';
+import {addCart} from '../../store/actions/cart'
  function Products(props) {
   const [prod , setProd] = useState("")
   
@@ -30,7 +31,7 @@ import { fetchProducts } from '../../store/actions/products';
                             <p>{prod.title}</p>
                             <span>{prod.price}$</span>
                         </div>
-                        <button onClick={()=>props.addToCart(prod)}>Add To Cart</button>
+                        <button onClick={()=>props.addCart(prod)}>Add To Cart</button>
                     </div>
             
             )) : "loading"}
@@ -43,4 +44,4 @@ export default connect( (state)=>{
   return{
     products : state.products.filterProduct
   }
-},{fetchProducts} )(Products);
+},{fetchProducts , addCart} )(Products);

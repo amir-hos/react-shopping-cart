@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../../css/cart/cart.css';
 import CheckOutForm from '../checkOutForm/CheckOutForm';
 import Fade from 'react-reveal/Fade';
+import {connect} from 'react-redux';
+import {removeCart} from '../../store/actions/cart';
  function Cart(props) {
 
   const [checkForm , setCheckForm] = useState(false);
@@ -32,14 +34,14 @@ import Fade from 'react-reveal/Fade';
               <div className='info'>
                   <p>title: {item.title}</p>
                   <p>qty: {item.qty}</p>
-                  <p>price: ${item.price}</p>
+                  <p>price: ${item.price * item.qty}</p>
               </div>
               <button onClick={()=> props.removeCart(item)}>Remove</button>
           </div>
             ))}
         </div>
         </Fade>
-        {props.cartItem.length !==0 && (
+        {props.cartItem.length !== 0 && (
           <div className='tatal-cart'>
               <div className='total-price'>total: ${props.cartItem.reduce((acc , p)=>{
                 return acc + p.price
@@ -63,4 +65,8 @@ import Fade from 'react-reveal/Fade';
   )
 }
 
-export default Cart
+export default connect((state)=>{
+  return{
+    cartItem : state.cart.cartItem
+  }
+} ,{removeCart})(Cart);
