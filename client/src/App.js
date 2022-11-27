@@ -31,9 +31,9 @@ function App() {
     }
     setCartItem(cartClone);
   }
-  useEffect(()=>{
-    localStorage.setItem('cartItem', JSON.stringify(cartItem))
-  },[cartItem])
+  //useEffect(()=>{
+  // localStorage.setItem('cartItem', JSON.stringify(cartItem))
+  //},[cartItem])
   const removeCart =(product)=>{
     let cartClone =[...cartItem];
     setCartItem(cartClone.filter(p=> p.id != product.id))
@@ -79,7 +79,7 @@ function App() {
             handleFilterByOrder={handleFilterByOrder}
             />
             </div>
-            <Cart cartItem={cartItem} removeCart={removeCart}/>
+            <Cart cartItem={cartItem} />
             </main>
       
           <Footer /> 
